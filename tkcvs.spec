@@ -1,16 +1,18 @@
-%define ver 8_0_3
+%define name tkcvs
+%define ver 8_0_4
 %define tkdiffrev 1.12
 %define version %(echo %ver | sed 's/_/./g')
+%define release %mkrel 2
 
 Summary:	Tk interface for CVS
-Name:		tkcvs
-Version: 	%version
-Release: 	%mkrel 1
+Name:		%{name}
+Version: 	%{version}
+Release: 	%{release}
 License:	GPL
 Group:		Development/Other
 
 Source:		http://www.twobarleycorns.net/%{name}_%{ver}.tar.bz2
-Patch:		tkcvs-7.2.2-paths.patch.bz2
+Patch:		tkcvs-7.2.2-paths.patch
 
 Url: 		http://www.twobarleycorns.net/tkcvs.html
 BuildRoot:	%_tmppath/%name-%version-%release-root
@@ -19,11 +21,11 @@ BuildArch:	noarch
 Epoch:		1
 
 %description
-tkCVS is a Tk based graphical interface to the CVS configuration
-management system.  It includes facilities for providing "user
-friendly" names to modules and directories within the repository, and
-provides a facility to interactively browse the repository looking for
-modules and directories.
+TkCVS is a Tcl/Tk-based graphical interface to the CVS and Subversion 
+configuration management systems.  It includes facilities for providing 
+"user friendly" names to modules and directories within the repository, 
+and provides a facility to interactively browse the repository looking 
+for modules and directories.
 
 %prep
 %setup -q -n %{name}_%ver
@@ -50,20 +52,32 @@ install tkcvs/tkcvs_def.tcl %buildroot/%_sysconfdir/cvs/
 ln tkdiff/COPYING tkdiff.COPYING 
 
 # Menu support
-install -d %buildroot/%_menudir/ 
-cat > %buildroot/%_menudir/%name << EOF
-?package(%{name}): needs=x11 \
-icon="development_tools_section.png" \
-section="Applications/Development/Tools" \
-title=TkCVS longtitle="Graphical HMI for CVS" \
-command="tkcvs"
 
-?package(%{name}): needs=x11 \
-icon="development_tools_section.png" \
-section="Applications/Development/Tools" \
-title="TkDiff" \
-longtitle="Graphical HMI for diff" \
-command="tkdiff"
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=TkCVS
+Comment=Graphical interface to CVS and SVN
+Exec=%{_bindir}/%{name} 
+Icon=development_tools_section.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Development;RevisionControl;X-MandrivaLinux-MoreApplications-Development-Tools;
+EOF
+
+cat > %{buildroot}%{_datadir}/applications/mandriva-tkdiff.desktop <<EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=TkDiff
+Comment=Graphical interface to diff
+Exec=%{_bindir}/tkdiff
+Icon=development_tools_section.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Development;RevisionControl;X-MandrivaLinux-MoreApplications-Development-Tools;
 EOF
 
 %post
@@ -83,7 +97,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/tkcvs/
 %dir %{_datadir}/tkcvs/bitmaps/
 %{_datadir}/tkcvs/tclIndex
-%_menudir/%{name}
+%{_datadir}/applications/*.desktop
 %_mandir/man*/*
 %{_datadir}/tkcvs/bitmaps/*
 %config(noreplace) %_sysconfdir/cvs/tkcvs_def.tcl
