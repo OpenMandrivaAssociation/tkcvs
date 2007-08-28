@@ -56,7 +56,6 @@ ln tkdiff/COPYING tkdiff.COPYING
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
 [Desktop Entry]
-Encoding=UTF-8
 Name=TkCVS
 Comment=Graphical interface to CVS and SVN
 Exec=%{_bindir}/%{name} 
@@ -69,7 +68,6 @@ EOF
 
 cat > %{buildroot}%{_datadir}/applications/mandriva-tkdiff.desktop <<EOF
 [Desktop Entry]
-Encoding=UTF-8
 Name=TkDiff
 Comment=Graphical interface to diff
 Exec=%{_bindir}/tkdiff
