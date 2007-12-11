@@ -59,7 +59,7 @@ cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
 Name=TkCVS
 Comment=Graphical interface to CVS and SVN
 Exec=%{_bindir}/%{name} 
-Icon=development_tools_section.png
+Icon=development_tools_section
 Terminal=false
 Type=Application
 StartupNotify=true
@@ -71,7 +71,7 @@ cat > %{buildroot}%{_datadir}/applications/mandriva-tkdiff.desktop <<EOF
 Name=TkDiff
 Comment=Graphical interface to diff
 Exec=%{_bindir}/tkdiff
-Icon=development_tools_section.png
+Icon=development_tools_section
 Terminal=false
 Type=Application
 StartupNotify=true
