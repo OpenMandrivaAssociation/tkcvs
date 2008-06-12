@@ -77,11 +77,15 @@ StartupNotify=true
 Categories=Development;RevisionControl;X-MandrivaLinux-MoreApplications-Development-Tools;
 EOF
 
+%if %mdkversion < 200900
 %post
 %update_menus
+%endif
 
+%if %mdkversion < 200900
 %postun
 %clean_menus
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
