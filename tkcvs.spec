@@ -6,7 +6,7 @@
 Summary:	Tk interface for CVS
 Name:		%{name}
 Version: 	%{version}
-Release: 	%mkrel 3
+Release: 	%mkrel 4
 License:	GPL
 Group:		Development/Other
 
