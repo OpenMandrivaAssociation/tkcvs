@@ -11,7 +11,7 @@ License:	GPL
 Group:		Development/Other
 
 Source:		http://www.twobarleycorns.net/%{name}_%{ver}.tar.bz2
-Patch:		tkcvs-7.2.2-paths.patch
+Patch:		tkcvs-8.0.4-paths.patch
 
 Url: 		http://www.twobarleycorns.net/tkcvs.html
 BuildRoot:	%_tmppath/%name-%version-%release-root
