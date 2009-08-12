@@ -1,12 +1,12 @@
 %define name tkcvs
 %define ver 8_0_4
 %define tkdiffrev 1.12
-%define version %(echo %ver | sed 's/_/./g')
+%define version 8.2
 
 Summary:	Tk interface for CVS
 Name:		%{name}
 Version: 	%{version}
-Release: 	%mkrel 5
+Release: 	%mkrel 1
 License:	GPL
 Group:		Development/Other
 
