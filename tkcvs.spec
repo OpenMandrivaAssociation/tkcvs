@@ -1,16 +1,15 @@
 %define name tkcvs
-%define ver 8_0_4
-%define tkdiffrev 1.12
 %define version 8.2
+%define ver %(echo %{version} | sed -e 's/\\./_/g')
 
 Summary:	Tk interface for CVS
 Name:		%{name}
 Version: 	%{version}
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 License:	GPL
 Group:		Development/Other
 
-Source:		http://www.twobarleycorns.net/%{name}_%{ver}.tar.bz2
+Source:		http://www.twobarleycorns.net/%{name}_%{ver}.tar.gz
 Patch0:		tkcvs-8.0.4-paths.patch
 Patch1:     tkdiff.patch
 
@@ -30,7 +29,7 @@ for modules and directories.
 %prep
 %setup -q -n %{name}_%ver
 %patch0 -p1 -b .paths
-%patch1 -p0 -b .tkdiff
+%patch1 -p1 -b .tkdiff
 
 %install
 rm -fr %buildroot
