@@ -5,13 +5,12 @@
 Summary:	Tk interface for CVS
 Name:		%{name}
 Version: 	%{version}
-Release: 	%mkrel 3
+Release: 	%mkrel 4
 License:	GPL
 Group:		Development/Other
 
 Source:		http://www.twobarleycorns.net/%{name}_%{ver}.tar.gz
 Patch0:		tkcvs-8.0.4-paths.patch
-Patch1:     tkdiff.patch
 
 Url: 		http://www.twobarleycorns.net/tkcvs.html
 BuildRoot:	%_tmppath/%name-%version-%release-root
@@ -29,7 +28,6 @@ for modules and directories.
 %prep
 %setup -q -n %{name}_%ver
 %patch0 -p1 -b .paths
-%patch1 -p1 -b .tkdiff
 
 %install
 rm -fr %buildroot
