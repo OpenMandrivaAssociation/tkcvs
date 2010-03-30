@@ -5,7 +5,7 @@
 Summary:	Tk interface for CVS
 Name:		%{name}
 Version: 	%{version}
-Release: 	%mkrel 4
+Release: 	%mkrel 5
 License:	GPL
 Group:		Development/Other
 
@@ -14,7 +14,7 @@ Patch0:		tkcvs-8.0.4-paths.patch
 
 Url: 		http://www.twobarleycorns.net/tkcvs.html
 BuildRoot:	%_tmppath/%name-%version-%release-root
-Requires:	tk cvs
+Requires:	tk cvs tcl
 BuildArch:	noarch
 Epoch:		1
 
