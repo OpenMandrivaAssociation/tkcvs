@@ -1,17 +1,15 @@
 %define name tkcvs
-%define version 8.2
+%define version 8.2.1
 %define ver %(echo %{version} | sed -e 's/\\./_/g')
 
 Summary:	Tk interface for CVS
 Name:		%{name}
 Version: 	%{version}
-Release: 	%mkrel 5
-License:	GPL
+Release: 	%mkrel 1
+License:	GPLv2
 Group:		Development/Other
-
 Source:		http://www.twobarleycorns.net/%{name}_%{ver}.tar.gz
-Patch0:		tkcvs-8.0.4-paths.patch
-
+Patch0:		tkcvs-8.2.1-fix-paths.patch
 Url: 		http://www.twobarleycorns.net/tkcvs.html
 BuildRoot:	%_tmppath/%name-%version-%release-root
 Requires:	tk cvs tcl
@@ -27,7 +25,7 @@ for modules and directories.
 
 %prep
 %setup -q -n %{name}_%ver
-%patch0 -p1 -b .paths
+%patch0 -p0
 
 %install
 rm -fr %buildroot
@@ -76,15 +74,6 @@ StartupNotify=true
 Categories=Development;RevisionControl;X-MandrivaLinux-MoreApplications-Development-Tools;
 EOF
 
-%if %mdkversion < 200900
-%post
-%update_menus
-%endif
-
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
