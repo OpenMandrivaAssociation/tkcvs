@@ -1,0 +1,24 @@
+--- tkcvs_8_2_1/tkcvs/tkcvs.tcl.paths	2009-12-21 07:59:37.000000000 +0200
++++ tkcvs_8_2_1/tkcvs/tkcvs.tcl	2010-06-02 10:51:45.454800119 +0300
+@@ -69,8 +69,8 @@
+ }
+ 
+ 
+-set TCDIR [file join $TclRoot tkcvs]
+-set cvscfg(bitmapdir) [file join $TclRoot tkcvs bitmaps]
++set TCDIR "/usr/share/tkcvs"
++set cvscfg(bitmapdir) "/usr/share/tkcvs/bitmaps"
+ #puts "TCDIR $TCDIR"
+ #puts "BITMAPDIR $cvscfg(bitmapdir)"
+ 
+@@ -99,8 +99,8 @@
+ }
+ 
+ # Read in defaults
+-if {[file exists [file join $TCDIR tkcvs_def.tcl]]} {
+-  source [file join $TCDIR tkcvs_def.tcl]
++if {[file exists [file join /etc/cvs tkcvs_def.tcl]]} {
++  source [file join /etc/cvs tkcvs_def.tcl]
+ }
+ 
+ # This helps us recover from a problem left behind by tkcvs 7.2
