@@ -5,7 +5,7 @@
 Summary:	Tk interface for CVS
 Name:		%{name}
 Version: 	%{version}
-Release: 	6
+Release: 	7
 License:	GPLv2
 Group:		Development/Other
 Source:		http://www.twobarleycorns.net/%{name}_%{ver}.tar.gz
