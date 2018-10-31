@@ -5,7 +5,7 @@
 Summary:	Tk interface for CVS
 Name:		%{name}
 Version: 	%{version}
-Release: 	12
+Release: 	13
 License:	GPLv2
 Group:		Development/Other
 Source:		http://www.twobarleycorns.net/%{name}_%{ver}.tar.gz
@@ -192,7 +192,7 @@ rm -rf $RPM_BUILD_ROOT
 - 7.1.4
 - tkdiff 4.0b4
 
-* Fri Jul 25 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 7.1.2-3mdk
+* Fri Jul 25 2003 Per Ã˜yvind Karlsen <peroyvind@sintrax.net> 7.1.2-3mdk
 - rebuild
 
 * Thu Feb 27 2003 David BAUDENS <baudens@mandrakesoft.com> 7.1.2-2mdk
@@ -254,5 +254,5 @@ rm -rf $RPM_BUILD_ROOT
 - Mandrake adaptations
 - default cvsroot to /var/cvs
 
-* Wed Dec 23 1998 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
+* Wed Dec 23 1998 Arkadiusz MiÂ¶kiewicz <misiek@misiek.eu.org>
 - initial rpm release
