@@ -10,7 +10,7 @@ License:	GPLv2
 Group:		Development/Other
 Source:		http://www.twobarleycorns.net/%{name}_%{ver}.tar.gz
 Patch0:		tkcvs-8.2.1-paths.patch
-Url: 		http://www.twobarleycorns.net/tkcvs.html
+Url: 		https://www.twobarleycorns.net/tkcvs.html
 BuildRoot:	%_tmppath/%name-%version-%release-root
 Requires:	tk cvs tcl
 BuildArch:	noarch
